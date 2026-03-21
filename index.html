@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink:wght@100..900&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+            rel="stylesheet">
+
+    <title>Padrões web</title>
+</head>
+
+<body>
+<header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="contato.html">Cadastro</a>
+        <button>
+            <img src="assets/dark-mode-svgrepo-com.svg" alt="Dark mode">
+        </button>
+    </nav>
+</header>
+
+<main>
+    <section class="container-apresentacao" id="home">
+        <img src="assets/perfil.jpeg" alt="Imagem de Filipe Lacerda">
+        <div class="context-aprensentacao-conteudo">
+            <h1>Filipe Lacerda</h1>
+            <h2>Fullstack Developer</h2>
+            <div class="context-links-contatos">
+                <a href="#contato">
+                    <img src="assets/download.svg" alt="Ícone de download"/>
+                    Download CV
+                </a>
+                <a href="#projetos">
+                    <img src="assets/open_in_new.svg" alt="Ícone abrir em nova janela"/>
+                    Entre em contato
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="sobre">
+        <div class="content-sobre">
+
+            <h2>Sobre</h2>
+            <p>Sou desenvolvedor de software com experiência na construção de aplicações web completas, atuando desde a
+                concepção até a entrega e monitoramento em produção. Trabalho principalmente com <b>Java e Spring Boot
+                    no
+                    backend</b> e <b>Angular, TypeScript e JavaScript no frontend</b>, aplicando boas práticas de
+                arquitetura,
+                modularização e programação reativa.
+
+                Tenho vivência com <b>modelagem de dados em Oracle e PostgreSQL</b>, além de experiência com <b>mensageria
+                    para
+                    comunicação assíncrona</b> e construção de soluções escaláveis. Também atuo com <b>testes
+                    automatizados</b>,
+                garantindo qualidade e confiabilidade das entregas.
+
+                Possuo experiência na implementação de <b>pipelines CI/CD com Jenkins e Docker</b>, bem como no uso de
+                <b>monitoramento e observabilidade com Grafana</b>, contribuindo para a estabilidade e evolução contínua
+                das
+                aplicações.
+
+                Trabalho em ambientes ágeis, com foco em <b>qualidade de código, boas práticas de engenharia de software
+                    e
+                    entrega contínua de valor</b>. Neste portfólio, apresento projetos que refletem minha experiência
+                prática e minha
+                evolução técnica na construção de soluções eficientes e escaláveis.
+            </p>
+
+        </div>
+    </section>
+    <section id="habilidades">
+        <div class="cards-habilidades">
+            <section class="content-casos-de-uso">
+                <h2>Evolução de Observabilidade em Aplicações Web</h2>
+
+                <p> Contexto: Aplicação corporativa com múltiplos serviços e necessidade de maior visibilidade em
+                    produção.
+                    Problema: Dificuldade na identificação rápida de falhas e análise de comportamento do sistema.
+                    Solução: Implementação de monitoramento com Grafana, criação de métricas customizadas e
+                    acompanhamento de indicadores de saúde da aplicação.
+                    Resultado: Redução no tempo de diagnóstico de incidentes e melhoria na estabilidade geral do
+                    sistema. </p>
+            </section>
+            <section class="content-casos-de-uso">
+                <h2>Implementação de Comunicação Assíncrona entre Serviços</h2>
+                <p>Contexto: Sistema com necessidade de integração entre diferentes módulos e serviços.
+                    Problema: Acoplamento elevado e limitações de escalabilidade na comunicação síncrona.
+                    Solução: Introdução de mensageria com Artemis MQ para comunicação assíncrona entre serviços.
+                    Resultado: Redução do acoplamento, melhoria na escalabilidade e maior resiliência da aplicação.</p>
+            </section>
+            <section class="content-casos-de-uso">
+                <h2>Melhoria de Qualidade com Testes Automatizados</h2>
+                <p>Contexto: Necessidade de aumentar a confiabilidade das entregas e reduzir regressões.
+                    Problema: Baixa cobertura de testes e maior incidência de erros em produção.
+                    Solução: Implementação de testes unitários e de integração com JUnit, Karma e Jasmine.
+                    Resultado: Aumento da qualidade do código, maior segurança em mudanças e redução de falhas em produção.</p>
+            </section>
+        </div>
+        <div class="skills">
+            <img src="./assets/java-svgrepo-com.svg" alt="Java">
+            <img src="./assets/bitbucket-svgrepo-com.svg" alt="Bitbucket">
+            <img src="./assets/brand-angularjs-svgrepo-com.svg" alt="Angular">
+            <img src="./assets/brand-html5-svgrepo-com.svg" alt="HTML5">
+            <img src="./assets/database-svgrepo-com.svg" alt="Database">
+            <img src="./assets/docker-svgrepo-com%20(1).svg" alt="Docker">
+            <img src="./assets/javascript-svgrepo-com.svg" alt="JavaScript">
+            <img src="./assets/jenkins-svgrepo-com.svg" alt="Jenkins">
+            <img src="./assets/spring-boot-svgrepo-com.svg" alt="Spring Boot">
+            <img src="./assets/typescript-official-svgrepo-com.svg" alt="TypeScript">
+        </div>
+    </section>
+</main>
+<footer>
+    <p>Desenvolvo sistemas web.</p>
+    <img src="./assets/github-142-svgrepo-com.svg" alt="Logo do GitHub">
+    <img src="./assets/linkedin-svgrepo-com.svg" alt="Logo do LinkedIn">
+    <img src="./assets/email-download-svgrepo-com.svg" alt="Logo do Email">
+</footer>
+
+
+</body>
+
+</html>
