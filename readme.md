@@ -268,7 +268,7 @@ Este projeto é de uso pessoal como portfólio profissional.
 
 **Desenvolvido com 💙 e ☕ por Filipe Lacerda**
 
-Feito em 2024 | Padrões Web Modernos
+Feito em 2026
 
 </div>
 
