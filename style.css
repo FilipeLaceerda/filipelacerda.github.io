@@ -23,9 +23,10 @@ header {
     backdrop-filter: blur(10px);
     margin: 0;
     padding: 0;
-    height: 48px;
+    height: auto;
+    min-height: 48px;
     border-bottom: 1px solid rgba(0, 173, 181, 0.4);
-    box-shadow: 0 0 24px rgba(0, 173, 181, 0.2);
+    box-shadow: none;
     position: fixed;
     width: 100%;
     z-index: 1;
@@ -34,18 +35,29 @@ header {
     nav {
         display: flex;
         align-items: center;
-        justify-content: space-around;
-        height: 100%;
-        padding: 0 16px;
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        height: auto;
+        padding: 8px;
+        gap: 0;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         a {
             color: var(--cor-principal);
             text-decoration: none;
-            margin-right: 16px;
+            margin-right: 0;
             letter-spacing: 1px;
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             transition: color 0.2s ease;
+            padding: 4px 8px;
+            white-space: nowrap;
+            flex-shrink: 0;
 
             &:hover {
                 color: var(--cor-hover);
@@ -54,16 +66,18 @@ header {
         }
 
         button {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 8px;
             border: 1px solid rgba(0, 173, 181, 0.4);
             cursor: pointer;
             background: var(--cor-principal);
+            flex-shrink: 0;
+            margin-left: auto;
 
             img {
-                width: 24px;
-                height: 24px;
+                width: 20px;
+                height: 20px;
             }
         }
     }
@@ -77,19 +91,21 @@ main {
 
     .container-apresentacao {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 64px;
+        gap: 16px;
         width: 100%;
-        min-height: calc(100vh - 80px);
-        padding-top: 48px;
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 40px;
         box-sizing: border-box;
+        text-align: center;
 
         h1 {
             color: var(--cor-hover);
             margin: 0;
-            font-size: 2.4rem;
+            font-size: 20px;
             letter-spacing: 3px;
             text-transform: uppercase;
             text-shadow: 0 0 20px rgba(0, 173, 181, 0.45);
@@ -99,12 +115,13 @@ main {
             color: var(--cor-principal);
             letter-spacing: 1px;
             margin: 8px 0 20px;
+            font-size: 15px;
         }
 
         img {
             border-radius: 50%;
-            width: 220px;
-            height: 220px;
+            width: 130px;
+            height: 130px;
             object-fit: cover;
             border: 2px solid var(--cor-hover);
             box-shadow: 0 0 0 6px rgba(0, 173, 181, 0.1), 0 0 32px rgba(0, 173, 181, 0.25);
@@ -113,18 +130,21 @@ main {
         .context-aprensentacao-conteudo {
             display: flex;
             flex-direction: column;
-            width: 25%;
+            width: 92%;
+            align-items: center;
 
             .context-links-contatos {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
                 gap: 12px;
+                flex-direction: column;
+                align-items: center;
 
                 a {
                     text-decoration: none;
                     background-color: transparent;
                     color: var(--cor-hover);
-                    padding: 8px 20px;
+                    padding: 8px 12px;
                     border-radius: 4px;
                     border: 1px solid var(--cor-hover);
                     display: flex;
@@ -135,6 +155,9 @@ main {
                     font-size: 13px;
                     text-transform: uppercase;
                     transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+                    width: 100%;
+                    justify-content: center;
+                    box-sizing: border-box;
 
                     &:hover {
                         background-color: var(--cor-hover);
@@ -164,8 +187,8 @@ main {
         background-color: rgba(57, 62, 70, 0.25);
         border: 1px solid rgba(0, 173, 181, 0.2);
         border-radius: 12px;
-        padding: 40px 48px;
-        max-width: 520px;
+        padding: 32px 16px;
+        max-width: 95%;
         margin: 0 auto 40px;
         backdrop-filter: blur(6px);
         box-shadow: 0 0 40px rgba(0, 173, 181, 0.08), inset 0 0 60px rgba(34, 40, 49, 0.4);
@@ -207,9 +230,9 @@ main {
                 display: flex;
                 width: 100%;
                 align-items: baseline;
-                font-size: 11px;
+                font-size: 10px;
                 color: var(--cor-hover);
-                letter-spacing: 3px;
+                letter-spacing: 2px;
                 text-transform: uppercase;
                 font-weight: 600;
             }
@@ -224,7 +247,7 @@ main {
                 border-bottom: 1px solid rgba(57, 62, 70, 0.8);
                 box-sizing: border-box;
                 font-family: inherit;
-                font-size: 14px;
+                font-size: 13px;
                 color: var(--cor-principal);
                 letter-spacing: 1px;
                 transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -254,7 +277,7 @@ main {
                 border: 1px solid var(--cor-secundaria);
                 box-sizing: border-box;
                 font-family: inherit;
-                font-size: 14px;
+                font-size: 13px;
                 resize: vertical;
             }
 
@@ -264,13 +287,15 @@ main {
                 color: var(--cor-hover);
                 text-transform: uppercase;
                 letter-spacing: 3px;
-                font-size: 13px;
+                font-size: 14px;
                 font-weight: 600;
-                padding: 10px 28px;
+                padding: 10px;
                 border-radius: 4px;
                 cursor: pointer;
                 font-family: inherit;
                 transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+                width: 100%;
+                text-align: center;
 
                 &:hover {
                     background-color: var(--cor-hover);
@@ -285,13 +310,15 @@ main {
                 color: rgba(238, 238, 238, 0.6);
                 text-transform: uppercase;
                 letter-spacing: 3px;
-                font-size: 13px;
+                font-size: 14px;
                 font-weight: 600;
-                padding: 10px 28px;
+                padding: 10px;
                 border-radius: 4px;
                 cursor: pointer;
                 font-family: inherit;
                 transition: border-color 0.3s ease, color 0.3s ease;
+                width: 100%;
+                text-align: center;
 
                 &:hover {
                     border-color: var(--cor-principal);
@@ -307,7 +334,7 @@ main {
             justify-content: center;
             align-items: center;
             width: 100%;
-            gap: 16px;
+            gap: 24px;
             border: 1px solid rgba(0, 173, 181, 0.15);
             border-radius: 8px;
             padding: 12px 16px;
@@ -315,9 +342,9 @@ main {
 
             div {
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                gap: 4px;
+                gap: 6px;
             }
 
             label {
@@ -350,17 +377,18 @@ main {
 
         .action {
             display: flex;
-            flex-direction: row;
-            gap: 12px;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
         }
     }
 
     .title-cadastro {
-        margin: 80px 0 32px;
+        margin: 70px 0 32px;
         text-align: center;
-        font-size: 32px;
+        font-size: 20px;
         color: var(--cor-hover);
-        letter-spacing: 6px;
+        letter-spacing: 4px;
         text-transform: uppercase;
         text-shadow: 0 0 16px rgba(0, 173, 181, 0.5);
         position: relative;
@@ -384,10 +412,10 @@ footer {
     gap: 16px;
     color: var(--cor-principal);
     text-align: center;
-    padding: 16px;
+    padding: 12px;
     border-top: 1px solid rgba(0, 173, 181, 0.1);
     letter-spacing: 2px;
-    font-size: 20px;
+    font-size: 13px;
 
     p {
         margin: 0;
@@ -407,17 +435,17 @@ footer {
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 100vh;
+    min-height: auto;
     box-sizing: border-box;
-    padding: 48px 0 32px;
+    padding: 70px 12px 32px;
 
     .content-sobre {
         background-color: var(--cor-secundaria);
-        width: 60%;
+        width: 100%;
         height: auto;
         color: var(--cor-principal);
         border-radius: 8px;
-        padding: 24px 32px;
+        padding: 16px;
         box-sizing: border-box;
         border-top: 3px solid var(--cor-hover);
         box-shadow: 0 0 32px rgba(0, 173, 181, 0.08);
@@ -427,11 +455,12 @@ footer {
             color: var(--cor-hover);
             letter-spacing: 2px;
             text-transform: uppercase;
+            font-size: 18px;
         }
 
         p {
-            line-height: 1.7;
-            font-size: 15px;
+            line-height: 1.6;
+            font-size: 13px;
             color: rgba(238, 238, 238, 0.85);
         }
     }
@@ -449,19 +478,19 @@ footer {
 
     .cards-habilidades {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 24px;
-        width: 80%;
+        width: 100%;
         margin-bottom: 40px;
     }
 
     .content-casos-de-uso {
-        flex: 1;
+        flex: 1 1 100%;
         background-color: var(--cor-secundaria);
         color: var(--cor-principal);
         border-radius: 8px;
         padding: 24px;
-        min-height: 180px;
+        min-height: 140px;
         box-sizing: border-box;
         border-top: 4px solid var(--cor-hover);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -489,11 +518,11 @@ footer {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 16px;
+        gap: 12px;
 
         img {
-            width: 64px;
-            height: 64px;
+            width: 44px;
+            height: 44px;
             object-fit: contain;
             transition: transform 0.2s ease;
 
@@ -509,46 +538,23 @@ footer {
     to   { transform: translateX(20vw); }
 }
 
-
-@media (max-width: 900px) {
-
-    header {
-        height: auto;
-        min-height: 48px;
-        box-shadow: none;
-    }
+@media (min-width: 601px) {
 
     header nav {
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 6px 4px;
+        flex-wrap: wrap;
         padding: 8px 12px;
-        height: auto;
+        gap: 6px 4px;
     }
 
     header nav a {
         font-size: 13px;
-        margin-right: 0;
         padding: 4px 6px;
     }
 
-    header nav button {
-        width: 36px;
-        height: 36px;
-    }
-
-    header nav button img {
-        width: 20px;
-        height: 20px;
-    }
-
     main .container-apresentacao {
-        flex-direction: column;
-        gap: 24px;
         padding-top: 90px;
-        text-align: center;
-        min-height: auto;
-        padding-bottom: 40px;
+        gap: 24px;
     }
 
     main .container-apresentacao img {
@@ -566,28 +572,13 @@ footer {
 
     main .container-apresentacao .context-aprensentacao-conteudo {
         width: 85%;
-        align-items: center;
-    }
-
-    main .container-apresentacao .context-links-contatos {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-    }
-
-    main .container-apresentacao .context-links-contatos a {
-        width: 100%;
-        justify-content: center;
-        box-sizing: border-box;
     }
 
     #sobre {
-        min-height: auto;
         padding: 80px 16px 40px;
     }
 
     #sobre .content-sobre {
-        width: 100%;
         padding: 20px;
     }
 
@@ -596,7 +587,6 @@ footer {
     }
 
     #habilidades .cards-habilidades {
-        width: 100%;
         flex-wrap: wrap;
     }
 
@@ -615,185 +605,167 @@ footer {
         max-width: 90%;
     }
 
-    main form section {
-        width: 100%;
+    main form section label {
+        font-size: 11px;
+        letter-spacing: 3px;
     }
 
-    main form .genero {
-        width: 100%;
+    main form section input:not([type="radio"]):not([type="submit"]):not([type="reset"]) {
+        font-size: 14px;
+    }
+
+    main form section textarea {
+        font-size: 14px;
+    }
+
+    main form section #enviar,
+    main form section #limpar {
+        padding: 10px 28px;
+        font-size: 13px;
+        width: auto;
     }
 
     main form .action {
-        width: 100%;
-        justify-content: center;
+        flex-direction: row;
+        width: auto;
+        gap: 12px;
+    }
+
+    main form .genero {
+        gap: 16px;
+    }
+
+    main form .genero div {
+        flex-direction: column;
+        gap: 4px;
     }
 
     .title-cadastro {
         font-size: 24px;
     }
-
-    footer {
-        text-align: center;
-    }
 }
 
-@media (max-width: 600px) {
+@media (min-width: 901px) {
 
-    header nav {
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding: 8px;
-        gap: 0;
-        scrollbar-width: none;
+    header {
+        height: 48px;
+        box-shadow: 0 0 24px rgba(0, 173, 181, 0.2);
     }
 
-    header nav::-webkit-scrollbar {
-        display: none;
+    header nav {
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        padding: 0 16px;
+        height: 100%;
+        gap: 0;
+        overflow-x: visible;
     }
 
     header nav a {
-        font-size: 12px;
-        padding: 4px 8px;
-        white-space: nowrap;
-        flex-shrink: 0;
-        margin-right: 0;
+        font-size: 13px;
+        margin-right: 16px;
+        padding: 0;
     }
 
     header nav button {
-        flex-shrink: 0;
-        margin-left: auto;
+        width: 40px;
+        height: 40px;
+        margin-left: 0;
+    }
+
+    header nav button img {
+        width: 24px;
+        height: 24px;
     }
 
     main .container-apresentacao {
-        padding-top: 80px;
-        gap: 16px;
+        flex-direction: row;
+        gap: 64px;
+        padding-top: 48px;
+        min-height: calc(100vh - 80px);
+        text-align: left;
     }
 
     main .container-apresentacao img {
-        width: 130px;
-        height: 130px;
+        width: 220px;
+        height: 220px;
     }
 
     main .container-apresentacao h1 {
-        font-size: 20px;
+        font-size: 2.4rem;
     }
 
     main .container-apresentacao h2 {
-        font-size: 15px;
+        font-size: 1.5rem;
     }
 
     main .container-apresentacao .context-aprensentacao-conteudo {
-        width: 92%;
+        width: 25%;
+        align-items: flex-start;
+    }
+
+    main .container-apresentacao .context-links-contatos {
+        flex-direction: row !important;
+        justify-content: space-between;
     }
 
     main .container-apresentacao .context-links-contatos a {
-        font-size: 13px;
-        padding: 8px 12px;
+        width: auto;
+        padding: 8px 20px;
     }
 
     #sobre {
-        padding: 70px 12px 32px;
+        min-height: 100vh;
+        padding: 48px 0 32px;
     }
 
     #sobre .content-sobre {
-        padding: 16px;
+        width: 60%;
+        padding: 24px 32px;
     }
 
     #sobre .content-sobre h2 {
-        font-size: 18px;
+        font-size: 1.5rem;
     }
 
     #sobre .content-sobre p {
-        font-size: 13px;
-        line-height: 1.6;
+        font-size: 15px;
+        line-height: 1.7;
     }
 
     #habilidades .cards-habilidades {
-        flex-direction: column;
+        flex-direction: row;
+        width: 80%;
+        flex-wrap: nowrap;
     }
 
     #habilidades .content-casos-de-uso {
-        flex: 1 1 100%;
-        min-height: 140px;
+        flex: 1;
+        min-height: 180px;
     }
 
     #habilidades .skills {
-        gap: 12px;
+        gap: 16px;
     }
 
     #habilidades .skills img {
-        width: 44px;
-        height: 44px;
+        width: 64px;
+        height: 64px;
     }
 
     main form {
-        padding: 32px 16px;
-        max-width: 95%;
-    }
-
-    main form section {
-        width: 100%;
-    }
-
-    main form section label {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-
-    main form section input:not([type="radio"]):not([type="submit"]):not([type="reset"]) {
-        font-size: 13px;
-    }
-
-    main form section textarea {
-        font-size: 13px;
-    }
-
-    main form section #enviar,
-    main form section #limpar {
-        width: 100%;
-        padding: 10px;
-        font-size: 14px;
-        text-align: center;
-    }
-
-    main form .action {
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
-    }
-
-    main form .genero {
-        width: 100%;
-        flex-direction: row;
-        justify-content: center;
-        gap: 24px;
-    }
-
-    main form .genero div {
-        flex-direction: row;
-        align-items: center;
-        gap: 6px;
-    }
-
-    main form .genero #fgeneroM,
-    main form .genero #fgeneroF {
-        width: 16px;
-        height: 16px;
+        padding: 40px 48px;
+        max-width: 520px;
     }
 
     .title-cadastro {
-        font-size: 20px;
-        margin-top: 70px;
-        letter-spacing: 4px;
+        font-size: 32px;
+        margin: 80px 0 32px;
+        letter-spacing: 6px;
     }
 
     footer {
-        text-align: center;
-        padding: 12px;
-    }
-
-    footer p {
-        font-size: 13px;
+        font-size: 20px;
+        padding: 16px;
     }
 }
