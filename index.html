@@ -12,17 +12,18 @@
             rel="stylesheet">
 
     <title>Filipe Lacerda</title>
+    <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-contexto="dark">
 <header>
     <nav>
         <a href="#home">Home</a>
         <a href="#sobre">Sobre</a>
         <a href="#habilidades">Habilidades</a>
         <a href="contato.html">Cadastro</a>
-        <button>
-            <img src="assets/dark-mode-svgrepo-com.svg" alt="Dark mode">
+        <button class="button-dark-mode">
+            <img src="assets/dark_mode.svg" alt="Dark mode">
         </button>
     </nav>
 </header>
@@ -34,12 +35,12 @@
             <h1>Filipe Lacerda</h1>
             <h2>Fullstack Developer</h2>
             <div class="context-links-contatos">
-                <a href="#contato">
-                    <img src="assets/download.svg" alt="Ícone de download"/>
+                <a id="download-cv">
+                    <img src="assets/download.svg" alt="Ícone de download" id="icone-download"/>
                     Download CV
                 </a>
-                <a href="#projetos">
-                    <img src="assets/open_in_new.svg" alt="Ícone abrir em nova janela"/>
+                <a id="entrar-em-contato">
+                    <img src="assets/open_in_new.svg" alt="Ícone abrir em nova janela" id="icone-abrir"/>
                     Entre em contato
                 </a>
             </div>
@@ -120,9 +121,9 @@
 </main>
 <footer>
     <p>Desenvolvo sistemas web.</p>
-    <img src="./assets/github-142-svgrepo-com.svg" alt="Logo do GitHub">
-    <img src="./assets/linkedin-svgrepo-com.svg" alt="Logo do LinkedIn">
-    <img src="./assets/email-download-svgrepo-com.svg" alt="Logo do Email">
+    <img src="./assets/github-142-svgrepo-com.svg" alt="Logo do GitHub" id="github">
+    <img src="./assets/linkedin-svgrepo-com.svg" alt="Logo do LinkedIn" id="linkendin">
+    <img src="./assets/email-download-svgrepo-com.svg" alt="Logo do Email" id="email">
 </footer>
 
 

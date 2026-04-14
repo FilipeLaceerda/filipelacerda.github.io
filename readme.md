@@ -156,6 +156,7 @@ O projeto possui **2 breakpoints** principais:
 ```bash
 # Navegue até a pasta do projeto
 cd Padrao-web
+cd Padrao-web
 
 # Abra o arquivo no navegador (macOS)
 open index.html
