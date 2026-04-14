@@ -181,6 +181,35 @@ const formulario = document.querySelector('form');
 
 if (formulario) {
     const btnLimpar = document.getElementById('limpar');
+    const inputTelefone = document.getElementById('ftelefone');
+
+    if (inputTelefone) {
+        inputTelefone.addEventListener('input', (e) => {
+            let valor = e.target.value.replace(/\D/g, '');
+
+            if (valor.length > 11) {
+                valor = valor.slice(0, 11);
+            }
+
+            let valorFormatado = '';
+
+            if (valor.length > 0) {
+                valorFormatado = '(' + valor.substring(0, 2);
+            }
+            if (valor.length >= 3) {
+                valorFormatado += ') ' + valor.substring(2, 7);
+            }
+            if (valor.length >= 7) {
+                if (valor.length <= 10) {
+                    valorFormatado = '(' + valor.substring(0, 2) + ') ' + valor.substring(2, 6) + '-' + valor.substring(6, 10);
+                } else {
+                    valorFormatado = '(' + valor.substring(0, 2) + ') ' + valor.substring(2, 7) + '-' + valor.substring(7, 11);
+                }
+            }
+
+            e.target.value = valorFormatado;
+        });
+    }
 
     if (btnLimpar) {
         btnLimpar.addEventListener('click', () => {
@@ -260,16 +289,19 @@ if (formulario) {
         
         let formularioValido = true;
 
-        if (!nome) {
-            mostrarErro(document.getElementById('fnome'), 'Por favor, preencha seu nome completo');
+        if (!nome || nome === '') {
+            mostrarErro(document.getElementById('fnome'), 'O campo nome não pode estar vazio');
             formularioValido = false;
         } else if (nome.length < 3) {
             mostrarErro(document.getElementById('fnome'), 'O nome deve ter pelo menos 3 caracteres');
             formularioValido = false;
+        } else if (nome.length > 50) {
+            mostrarErro(document.getElementById('fnome'), 'O nome deve ter no máximo 50 caracteres');
+            formularioValido = false;
         }
         
-        if (!emailInput) {
-            mostrarErro(document.getElementById('femail'), 'Por favor, informe seu e-mail');
+        if (!emailInput || emailInput === '') {
+            mostrarErro(document.getElementById('femail'), 'O campo e-mail não pode estar vazio');
             formularioValido = false;
         } else {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -279,19 +311,30 @@ if (formulario) {
             }
         }
         
-        if (!telefone) {
-            mostrarErro(document.getElementById('ftelefone'), 'Por favor, informe seu telefone');
+        if (!telefone || telefone === '') {
+            mostrarErro(document.getElementById('ftelefone'), 'O campo telefone não pode estar vazio');
             formularioValido = false;
-        } else if (telefone.length < 10) {
-            mostrarErro(document.getElementById('ftelefone'), 'O telefone deve ter pelo menos 10 dígitos');
-            formularioValido = false;
+        } else {
+            const telefoneRegex = /^[()0-9\s-]+$/;
+            const apenasNumeros = telefone.replace(/\D/g, '');
+
+            if (!telefoneRegex.test(telefone)) {
+                mostrarErro(document.getElementById('ftelefone'), 'O telefone deve conter apenas números, parênteses, espaços e traços');
+                formularioValido = false;
+            } else if (apenasNumeros.length < 10 || apenasNumeros.length > 11) {
+                mostrarErro(document.getElementById('ftelefone'), 'O telefone deve ter 10 ou 11 dígitos (DDD + número)');
+                formularioValido = false;
+            }
         }
         
-        if (!senha) {
-            mostrarErro(document.getElementById('fpassword'), 'Por favor, crie uma senha');
+        if (!senha || senha === '') {
+            mostrarErro(document.getElementById('fpassword'), 'O campo senha não pode estar vazio');
             formularioValido = false;
         } else if (senha.length < 6) {
             mostrarErro(document.getElementById('fpassword'), 'A senha deve ter pelo menos 6 caracteres para sua segurança');
+            formularioValido = false;
+        } else if (senha.length > 20) {
+            mostrarErro(document.getElementById('fpassword'), 'A senha deve ter no máximo 20 caracteres');
             formularioValido = false;
         } else if (!/[A-Z]/.test(senha)) {
             mostrarErro(document.getElementById('fpassword'), 'A senha deve conter pelo menos uma letra maiúscula');
@@ -301,8 +344,8 @@ if (formulario) {
             formularioValido = false;
         }
         
-        if (!dataNascimento) {
-            mostrarErro(document.getElementById('fdata'), 'Por favor, informe sua data de nascimento');
+        if (!dataNascimento || dataNascimento === '') {
+            mostrarErro(document.getElementById('fdata'), 'O campo data de nascimento não pode estar vazio');
             formularioValido = false;
         } else {
             const hoje = new Date();
@@ -327,6 +370,13 @@ if (formulario) {
         if (!fotoCapturada) {
             const sectionFoto = document.querySelector('.foto-section');
             mostrarErro(sectionFoto, 'Por favor, tire uma foto antes de enviar');
+            formularioValido = false;
+        }
+
+        const termos = document.getElementById('ftermos').checked;
+        if (!termos) {
+            const sectionTermos = document.querySelector('.termos-section');
+            mostrarErro(sectionTermos, 'Você precisa aceitar os termos de uso para continuar');
             formularioValido = false;
         }
 
@@ -432,10 +482,14 @@ const criarTelaCaptura = (dados) => {
     document.head.appendChild(style);
 })();
 
-entrarEmContato.addEventListener('click', () => {
-    window.location.href = 'mailto:filipeelacerda@gmail.com'
-});
+if (entrarEmContato) {
+    entrarEmContato.addEventListener('click', () => {
+        window.location.href = 'mailto:filipeelacerda@gmail.com';
+    });
+}
 
-downloadCV.addEventListener('click', () => {
-    window.open('assets/CV_Filipe_Lacerda.pdf', '_blank');
-})
+if (downloadCV) {
+    downloadCV.addEventListener('click', () => {
+        window.open('assets/CV_Filipe_Lacerda.pdf', '_blank');
+    });
+}

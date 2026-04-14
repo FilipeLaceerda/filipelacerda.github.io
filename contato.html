@@ -20,22 +20,22 @@
 </header>
 <main>
     <h1 class="title-cadastro">Cadastro</h1>
-    <form>
+    <form novalidate>
         <section>
             <label for="fnome">Nome</label>
-            <input type="text" id="fnome" name="nome" placeholder="Digite seu nome" required>
+            <input type="text" id="fnome" name="nome" placeholder="Digite seu nome" required minlength="3" maxlength="50">
         </section>
         <section>
             <label for="femail">Email</label>
-            <input type="email" id="femail" name="email" placeholder="Digite seu email" required>
+            <input type="email" id="femail" name="email" placeholder="Digite seu email" required maxlength="50">
         </section>
         <section>
             <label for="ftelefone">Telefone</label>
-            <input type="tel" id="ftelefone" name="telefone" placeholder="Digite seu telefone" required>
+            <input type="tel" id="ftelefone" name="telefone" placeholder="(00) 00000-0000" required minlength="10" maxlength="15">
         </section>
         <section>
             <label for="fpassword">Senha</label>
-            <input type="password" id="fpassword" name="senha" placeholder="Digite sua senha" required>
+            <input type="password" id="fpassword" name="senha" placeholder="Digite sua senha" required maxlength="20">
         </section>
         <section>
             <label for="fdata">Data de Nascimento</label>
@@ -44,11 +44,17 @@
         <section class="genero">
             <div>
                 <label for="fgeneroM">Masculino</label>
-                <input type="radio" id="fgeneroM" name="genero" value="M">
+                <input type="radio" id="fgeneroM" name="genero" value="M" required>
             </div>
             <div>
                 <label for="fgeneroF">Feminino</label>
-                <input type="radio" id="fgeneroF" name="genero" value="F">
+                <input type="radio" id="fgeneroF" name="genero" value="F" required>
+            </div>
+        </section>
+        <section class="termos-section">
+            <div class="termos-checkbox">
+                <input type="checkbox" id="ftermos" name="termos" required>
+                <label for="ftermos">Li e aceito os termos de uso e política de privacidade</label>
             </div>
         </section>
         <section class="foto-section">
